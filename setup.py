@@ -7,7 +7,7 @@ from subprocess import call
 
 from setuptools import Command, find_packages, setup
 
-from skele import __version__
+from snm import __version__
 
 
 this_dir = abspath(dirname(__file__))
@@ -33,7 +33,7 @@ class RunTests(Command):
 
 
 setup(
-    name = 'skele',
+    name = 'snm',
     version = __version__,
     description = 'A skeleton command line program in Python.',
     long_description = long_description,
@@ -63,7 +63,7 @@ setup(
     },
     entry_points = {
         'console_scripts': [
-            'skele=skele.cli:main',
+            'snm=snm.cli:main',
         ],
     },
     cmdclass = {'test': RunTests},
