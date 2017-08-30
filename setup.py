@@ -4,9 +4,7 @@
 from codecs import open
 from os.path import abspath, dirname, join
 from subprocess import call
-
 from setuptools import Command, find_packages, setup
-
 from snm import __version__
 
 
@@ -35,11 +33,11 @@ class RunTests(Command):
 setup(
     name = 'snm',
     version = __version__,
-    description = 'A skeleton command line program in Python.',
+    description = 'A command line tool for internal use.',
     long_description = long_description,
-    url = 'https://github.com/rdegges/skele-cli',
-    author = 'Randall Degges',
-    author_email = 'r@rdegges.com',
+    url = 'https://github.com/vs-zhang/snm',
+    author = 'Vincent Zhang',
+    author_email = 'vincentzhang1209@gmail.com',
     license = 'UNLICENSE',
     classifiers = [
         'Intended Audience :: Developers',
@@ -57,7 +55,7 @@ setup(
     ],
     keywords = 'cli',
     packages = find_packages(exclude=['docs', 'tests*']),
-    install_requires = ['docopt'],
+    install_requires = ['docopt', 'requests'],
     extras_require = {
         'test': ['coverage', 'pytest', 'pytest-cov'],
     },

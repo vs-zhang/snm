@@ -1,17 +1,18 @@
 """
-skele
+snm
 
 Usage:
-  skele hello
-  skele -h | --help
-  skele --version
+  snm hello
+  snm ssh
+  snm -h | --help
+  snm --version
 
 Options:
   -h --help                         Show this screen.
   --version                         Show version.
 
 Examples:
-  skele hello
+  snm hello
 
 Help:
   For help using this tool, please open an issue on the Github repository:
