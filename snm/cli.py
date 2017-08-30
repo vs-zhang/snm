@@ -3,7 +3,7 @@ snm
 
 Usage:
   snm hello
-  snm ssh
+  snm ssh <target> <service>
   snm -h | --help
   snm --version
 

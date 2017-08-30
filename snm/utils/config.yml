@@ -1,0 +1,4 @@
+xymon_base_url: http://xymon.infra.local
+hosts:
+  stg: enterprise_integration
+  q: qa
