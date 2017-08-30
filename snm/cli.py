@@ -3,9 +3,13 @@ snm
 
 Usage:
   snm hello
-  snm ssh <target> <service>
+  snm ssh TARGET SERVICE
   snm -h | --help
   snm --version
+
+Arguments:
+  TARGET    remote
+  SERVICE   service
 
 Options:
   -h --help                         Show this screen.
