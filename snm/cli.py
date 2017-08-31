@@ -4,6 +4,7 @@ snm
 Usage:
   snm hello
   snm ssh TARGET SERVICE
+  snm rc TARGET SERVICE
   snm -h | --help
   snm --version
 
