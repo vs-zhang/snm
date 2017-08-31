@@ -17,7 +17,8 @@ def get_url(target, service):
         [env, host] = target.split('.')
         base_url = config['xymon_base_url']
         name = config['hosts'][env]
-        return '{}/xymon/{}/{}-{}/{}_v2/{}_v2.html'.format(base_url, name, host, env, service, service)
+        service_name = config['services'][service]
+        return '{}/xymon/{}/{}-{}/{}/{}.html'.format(base_url, name, host, env, service_name, service_name)
 
 def find_ips(target, service):
     url = get_url(target, service)

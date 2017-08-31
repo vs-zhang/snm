@@ -2,3 +2,12 @@ xymon_base_url: http://xymon.infra.local
 hosts:
   stg: enterprise_integration
   q: qa
+services:
+  ondemand: ondemand_v2
+  core: core_v2
+  cms: cms_v2
+  backend: backend_v2
+  mplaces: mplaces
+  releases: releases
+  filecache_server: filecache-server
+  syslog: syslog
