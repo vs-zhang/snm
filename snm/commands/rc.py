@@ -3,11 +3,14 @@
 from json import dumps
 from .base import Base
 import os
+import time
 import paramiko
-from ..utils.utils import find_ips
+from ..utils.utils import find_ips, get_pwd
+from ..utils import interactive
+
 
 class RailsConsole(Base):
-    """SSH into remote env"""
+    """Rails Console remote env"""
 
     def run(self):
         target = self.options['TARGET']
@@ -21,6 +24,16 @@ class RailsConsole(Base):
         k = paramiko.RSAKey.from_private_key_file("/Users/vzhang/.ssh/id_rsa")
         proxy = paramiko.ProxyCommand("ssh -W {}:{} jump.sessionm.local".format(ip, 22))
         ssh.connect(ip, timeout=8, username="vzhang", pkey=k, sock=proxy)
-        ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command('ls -al')
-        print ssh_stdout.readlines()
-        # os.system('ssh {}'.format(ips[0]))
+        pwd = get_pwd()
+        shell = ssh.invoke_shell()
+        shell.send('sudo su - cap\n')
+        time.sleep(1)
+        shell.send(pwd + "\n")
+        time.sleep(1)
+        shell.send('cd /product/{}/current\n'.format(service))
+        time.sleep(1)
+        shell.send('rails c\n')
+        time.sleep(1)
+        interactive.interactive_shell(shell)
+        shell.close()
+        ssh.close()
