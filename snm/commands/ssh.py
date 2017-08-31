@@ -12,6 +12,6 @@ class SSH(Base):
         target = self.options['TARGET']
         service = self.options['SERVICE']
         ips = find_ips(target, service)
-        print 'SSH into {} {}'.format(target, service)
-        print 'ssh {}'.format(ips[0])
-        os.system('ssh {}'.format(ips[0]))
+        host = ips[0]
+        print 'The ip of {} {} is {}'.format(target, service, host)
+        os.system('ssh -q {}'.format(host))
