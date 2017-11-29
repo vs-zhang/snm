@@ -5,20 +5,18 @@ from .base import Base
 import os
 import time
 import paramiko
-from ..utils.utils import find_ips, get_pwd
+from ..utils.utils import find_ips, get_pwd, print_line
 from ..utils import interactive
 
 
 class RailsConsole(Base):
     """Rails Console remote env"""
-
     def run(self):
         target = self.options['TARGET']
         service = self.options['SERVICE']
         ips = find_ips(target, service)
         ip = ips[0]
-        print 'SSH into {} {}'.format(target, service)
-        print 'ssh {}'.format(ip)
+        print_line(':beer:  SSH into {} {} ip:{} :beer:'.format(target, service, ip))
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         k = paramiko.RSAKey.from_private_key_file("/Users/vzhang/.ssh/id_rsa")

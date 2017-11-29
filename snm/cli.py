@@ -9,8 +9,8 @@ Usage:
   snm --version
 
 Arguments:
-  TARGET    remote
-  SERVICE   service
+  TARGET    remote, etc (q.qa41)
+  SERVICE   service, etc (ondemand)
 
 Options:
   -h --help                         Show this screen.
@@ -18,10 +18,6 @@ Options:
 
 Examples:
   snm hello
-
-Help:
-  For help using this tool, please open an issue on the Github repository:
-  https://github.com/rdegges/skele-cli
 """
 
 

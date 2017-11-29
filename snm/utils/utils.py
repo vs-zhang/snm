@@ -3,6 +3,11 @@ import re
 import yaml
 import os
 import base64
+from pyemojify import emojify
+
+def print_line(text):
+    text = emojify(text)
+    print(text)
 
 def remove_duplicates(list):
     result = []

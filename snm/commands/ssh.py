@@ -3,7 +3,7 @@
 from json import dumps
 from .base import Base
 import os
-from ..utils.utils import find_ips
+from ..utils.utils import find_ips, print_line
 
 class SSH(Base):
     """SSH into remote env"""
@@ -12,6 +12,6 @@ class SSH(Base):
         target = self.options['TARGET']
         service = self.options['SERVICE']
         ips = find_ips(target, service)
-        host = ips[0]
-        print 'The ip of {} {} is {}'.format(target, service, host)
-        os.system('ssh -q {}'.format(host))
+        ip = ips[0]
+        print_line(':beer:  The IP of {} {} is {} :beer:'.format(target, service, ip))
+        os.system('ssh -q {}'.format(ip))

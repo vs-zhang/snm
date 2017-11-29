@@ -1,6 +1,7 @@
 xymon_base_url: http://xymon.infra.local
 bp: R291bWIhQDA5
 hosts:
+  ent: enterprise_production
   stg: enterprise_integration
   q: qa
 services:
