@@ -1,10 +1,11 @@
 """The rails console command."""
 
 from json import dumps
-from .base import Base
+import inquirer
 import os
 import time
 import paramiko
+from .base import Base
 from ..utils.utils import find_ips, get_pwd, print_line
 from ..utils import interactive
 
@@ -14,9 +15,19 @@ class RailsConsole(Base):
     def run(self):
         target = self.options['TARGET']
         service = self.options['SERVICE']
+        is_select_host = self.options['-s']
         ips = find_ips(target, service)
         ip = ips[0]
-        print_line(':beer:  SSH into {} {} ip:{} :beer:'.format(target, service, ip))
+        if is_select_host:
+            questions = [
+                inquirer.List('ip',
+                    message="Which Host do you want to choose?",
+                    choices=ips,
+                ),
+            ]
+            answers = inquirer.prompt(questions)
+            ip = answers['ip']
+        print_line(':beer:  SSH into {} {}:{} :beer:'.format(target, service, ip))
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         k = paramiko.RSAKey.from_private_key_file("/Users/vzhang/.ssh/id_rsa")
