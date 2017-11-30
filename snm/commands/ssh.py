@@ -25,4 +25,4 @@ class SSH(Base):
             answers = inquirer.prompt(questions)
             ip = answers['ip']
         print_line(':beer:  SSH into {} {}:{} :beer:'.format(target, service, ip))
-        os.system('ssh -q {}'.format(ip))
+        os.system("ssh -q -o 'ProxyCommand ssh -q -W %h:%p jump.sessionm.local' {}".format(ip))

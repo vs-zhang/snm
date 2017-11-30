@@ -1,13 +1,12 @@
 """The hello command."""
 
-from json import dumps
 from pyemojify import emojify
 from .base import Base
+from ..utils.utils import print_line
 
 class Hello(Base):
     """Say hello, world!"""
 
     def run(self):
-        text = emojify("Life is short :smile: , use :sparkles: Python :sparkles:")
-        print(text)
-        print 'Hello, world!'
+        print_line("Life is short :smile: , use :sparkles: Python :sparkles:")
+        print "Hello World!"
